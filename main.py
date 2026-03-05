@@ -95,3 +95,5 @@ print(f"""
     Общий {REQUIRED_WEIGHT_KEYWORD}{total_weight} фнт (или {total_weight * 0.4536} кг)
     Общее {REQUIRED_QUANTITY_KEYWORD}{total_quantity} предметов
 """)
+
+print("Test")
