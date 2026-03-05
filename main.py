@@ -62,7 +62,7 @@ def find_quantity(text: str, keyword: str, default, need_unit: bool = False) -> 
 
 
 if EMPTY_LOGS or DEFAULT_LOGS:
-    print(f"ТРЕБ. ЗАПОЛНЕНИЕ: |{"Название".center(MAX_COLUMN_WIDTH)}|    Цена    |   Вес   |  Кол-во  |     Тип     |")
+    print(f"ТРЕБ. ЗАПОЛНЕНИЕ: |{'Название'.center(MAX_COLUMN_WIDTH)}|    Цена    |   Вес   |  Кол-во  |     Тип     |")
 
 for s in data["subjects"]:
     if s["category_id"] in inventory_categories_ids:
@@ -72,12 +72,12 @@ for s in data["subjects"]:
 
         if EMPTY_LOGS and any([cost[2] == "EMPTY", weight[2] == "EMPTY", quantity[2] == "EMPTY"]):
             print(
-                f"                  |{s["name"].center(MAX_COLUMN_WIDTH)}|{(str(rep(cost[0])) + ' ' + rep(cost[1])).center(12)}|{str(rep(weight[0])).center(9)}|{str(rep(quantity[0])).center(10)}|{"EMPTY".center(13)}|")
+                f"                  |{s['name'].center(MAX_COLUMN_WIDTH)}|{(str(rep(cost[0])) + ' ' + rep(cost[1])).center(12)}|{str(rep(weight[0])).center(9)}|{str(rep(quantity[0])).center(10)}|{'EMPTY'.center(13)}|")
         elif any([cost[2] == "DEFAULT" and DEFAULT_LOGS["cost"], weight[2] == "DEFAULT" and DEFAULT_LOGS["weight"],
                   quantity[2] == "DEFAULT" and DEFAULT_LOGS["quantity"]]):
             try:
                 print(
-                    f"                  |{s["name"].center(MAX_COLUMN_WIDTH)}|{(str(cost[0]) + ' ' + cost[1]).center(12)}|{str(weight[0]).center(9)}|{str(quantity[0]).center(10)}|{"DEFAULT".center(13)}|")
+                    f"                  |{s['name'].center(MAX_COLUMN_WIDTH)}|{(str(cost[0]) + ' ' + cost[1]).center(12)}|{str(weight[0]).center(9)}|{str(quantity[0]).center(10)}|{'DEFAULT'.center(13)}|")
             except Exception:
                 print("-----!--->", s["name"])
         if cost[2] != "EMPTY" and quantity[2] != "EMPTY":
